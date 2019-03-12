@@ -3,6 +3,7 @@ let url = '/pro';
 // let url = 'https://aimkt.pingan.com';
 // let url = 'https://sales-engine-leshan.credoo.org:27100';
 // let url = 'http://103.28.215.253:10981';
+// let url = 'https://103.28.215.253:10982';
 
 export default {
     activityList:url+'/report/activityList',//下拉列表

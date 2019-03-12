@@ -16,6 +16,7 @@ module.exports = {
         // target: 'http://172.19.19.45:8080',
         // target: 'https://sales-engine-leshan.credoo.org:27100',
         target: 'http://103.28.215.253:10981',
+        // target: 'https://103.28.215.253:10982',
         pathRewrite: {
             '^/pro': '',
         },
