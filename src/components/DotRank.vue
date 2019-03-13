@@ -16,7 +16,8 @@
                 :key="tmp.label"
                 :prop="tmp.prop"
                 :label="tmp.label"
-                :width="tmp.width">
+                :width="tmp.width"
+                align= 'center'>
             </el-table-column>
         </el-table>
         <div class="pagegination">
@@ -120,7 +121,7 @@
         color: #4A4A4A;
         letter-spacing: 0;
         /* 表格内容居中 */
-        text-align: center;
+        /* text-align: center; */
     }
     .el-table th.is-leaf{
         border-bottom:none;

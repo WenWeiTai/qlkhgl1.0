@@ -11,54 +11,64 @@
             <el-table-column
                 key="活动海报名称"
                 prop="name"
-                label="活动海报名称">
+                label="活动海报名称"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="活动时间"
                 prop="time"
                 label="活动时间"
-                width="170">
+                width="170"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="活动状态"
                 prop="status"
-                label="活动状态">
+                label="活动状态"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="分享次数"
                 prop="sharecount"
-                label="分享次数">
+                label="分享次数"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="触达人数"
                 prop="touchcount"
                 label="触达人数"
-                :render-header="renderheader">
+                :render-header="renderheader"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="线上触达人数"
                 prop="inline"
-                label="线上触达人数">
+                label="线上触达人数"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="线下触达人数"
                 prop="offline"
-                label="线下触达人数">
+                label="线下触达人数"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="下发客户经理数"
                 prop="managercount"
-                label="下发客户经理数">
+                label="下发客户经理数"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="平均分享次数"
                 prop="avgshare"
-                label="平均分享次数">
+                label="平均分享次数"
+                align= 'center'>
             </el-table-column>
             <el-table-column
                 key="平均触达人数"
                 prop="avgtouch"
-                label="平均触达人数">
+                label="平均触达人数"
+                align= 'center'>
             </el-table-column>
         </el-table>
     </div>
