@@ -12,11 +12,9 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/pro': {
-        // target: 'https://aimkt.pingan.com',
-        // target: 'http://172.19.19.45:8080',
-        // target: 'https://sales-engine-leshan.credoo.org:27100',
-        target: 'http://103.28.215.253:10981',
-        // target: 'https://103.28.215.253:10982',
+        target: 'http://103.28.215.253:10981',  // 交接后测试服务器
+        // target: 'https://103.28.215.253:10982',  // 交接后测试服务器
+        // target: 'https://sales-engine-leshan.credoo.org:27100',  // 原测试服务器
         pathRewrite: {
             '^/pro': '',
         },
@@ -61,7 +59,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 

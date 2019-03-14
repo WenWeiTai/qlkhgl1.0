@@ -102,8 +102,10 @@ import md5 from 'js-md5';
         var obj = {
             userName:this.loginMsg1,
             passWord:md5(md5(this.loginMsg2)+'xcx#456')
+            // passWord:md5(md5(this.loginMsg2)+'xcx#456')
         };
         this.$store.dispatch('loginIn',obj).then(data=>{
+            console.log(obj)
             console.log("登录",data);
             if(data.code == '0'){
                 sessionStorage.setItem('islogin',true);
