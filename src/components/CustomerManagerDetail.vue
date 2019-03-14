@@ -1,8 +1,8 @@
 <template>
     <div class="cusmanager-container">
         <!-- 客户经理每日明细-->
-        <DotRank 
-            :tablename="cusmanagertablename" 
+        <DotRank
+            :tablename="cusmanagertablename"
             :totalcount="cusmanagertotalcount" 
             :pagesize="cusmanagerpagesize"
             :currentpage="cusmanagercurrentpage" 
@@ -27,11 +27,11 @@
                 value:'',
                 options: [],
                 cusmanagertablename:'客户经理每日明细',
-                cusmanagertotalcount:0,
-                cusmanagerpagesize:'10',
-                cusmanagercurrentpage:1,
-                cusmanagertotalpages:3,
-                cusmanagertabletitles:[
+                cusmanagertotalcount:0, // 总条数
+                cusmanagerpagesize:'10', // 一页数量 
+                cusmanagercurrentpage:1,   // 当前页
+                cusmanagertotalpages:3, // 总页数
+                cusmanagertabletitles:[ //  单元格标题
                     {prop:'time',label:"日期",width:'180'},
                     {prop:'name',label:"客户经理姓名",width:''},
                     {prop:'dotname',label:"网点名称",width:''},

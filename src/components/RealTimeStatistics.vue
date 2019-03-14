@@ -107,6 +107,9 @@
             DotRank
         },
         computed:{
+            /**
+             * 实时统计选择项
+             */
             realtimeActivity:{
                 get(){
                     return this.$store.state.realtimeActivity;
@@ -115,6 +118,9 @@
                     this.$store.state.realtimeActivity = val;
                 }
             },
+            /**
+             * 实时统计选择项的type
+             */
             realTimeType:{
                 get(){
                     return this.$store.state.realTimeType;
@@ -125,17 +131,22 @@
             }
         },
         watch:{
-            // value(newVal){
-            //     this.realtimeActivity = newVal;
-            // },
+            /**
+             * 监听网点排名当前页的变化，获取对应数据
+             */
             dotcurrentpage(newV){
                 this.getActivityDotRank();
             },
+            /**
+             * 监听客户经理排名当前页的变化，获取对应数据
+             */
             managercurrentpage(newV){
                 this.getManagerRank();
             },
+            /**
+             * 查找活动ID对应的type,拿到选择的数据
+             */
             realtimeActivity(newVal){
-                //查找活动ID对应的type
                 let obj_tmp = this.options.find((element,index,arr)=>{
                     return element.value == newVal;
                 });
@@ -149,28 +160,43 @@
             }
         },
         methods:{
+            /**
+             * 网点排名上一页
+             */
             dotprevpage(){
                 if(this.dotcurrentpage > 1){
                     this.dotcurrentpage--;
                     
                 }
             },
+            /**
+             * 网点排名下一页
+             */
             dotnextpage(){
                 if(this.dotcurrentpage < this.dottotalpages){
                     this.dotcurrentpage++;
                 }
             },
+            /**
+             * 客户经理排名上一页
+             */
             managerprevpage(){
                 if(this.managercurrentpage > 1){
                     this.managercurrentpage--;
                     
                 }
             },
+            /**
+             * 客户经理排名下一页
+             */
             managernextpage(){
                 if(this.managercurrentpage < this.managertotalpages){
                     this.managercurrentpage++;
                 }
             },
+            /**
+             * 网点排名的数据请求
+             */
             getActivityDotRank(){
                 let param1 ='activityId='+this.realtimeActivity+'&pageSize='+this.dotpagesize+'&pageNo='+this.dotcurrentpage+'&moduleType='+this.realTimeType;
                 this.$store.dispatch('branchRank',param1).then(res=>{
@@ -199,6 +225,9 @@
                     }
                 });
             },
+            /**
+             * 客户经理排名的数据请求
+             */
             getManagerRank(){
                 let param2 = 'idPoster='+this.realtimeActivity+'&pageSize='+this.managerpagesize+'&pageNo='+this.managercurrentpage+'&moduleType='+this.realTimeType;
                 this.$store.dispatch('managerSortList',param2).then(res=>{
@@ -230,26 +259,45 @@
                     }
                 });
             },
+            /**
+             * 客户经理排名改变当前页
+             */
             changeManagerCurPage(val){
                 this.managercurrentpage = val;
                 this.getManagerRank();
             },
+            /**
+             * 网点排名改变当前页
+             */
             changeDotCurPage(val){
                 this.dotcurrentpage = val;
                 this.getActivityDotRank();
             },
+            /**
+             * 改变客户经理排名页条数   —— 未使用
+             */
             changeManagerPageSize(val){
+                console.log(val)
                 this.managerpagesize = val;
                 this.getManagerRank();
             },
+            /**
+             * 改变网点排名页条数   —— 未使用
+             */
             changeDotPageSize(val){
                 this.dotpagesize = val;
                 this.getActivityDotRank();
             },
+            /**
+             * 网点排名报表下载
+             */
             exportExcelBr(){
                 let param ='activityId='+this.realtimeActivity+'&exportType=br'+'&moduleType='+this.realTimeType;
                 window.location.href=url.exportExcel+'?'+param;
             },
+            /**
+             * 客户经理排名报表下载
+             */
             exportExcelMs(){
                 let param ='activityId='+this.realtimeActivity+'&exportType=ms'+'&moduleType='+this.realTimeType;
                 window.location.href=url.exportExcel+'?'+param;
@@ -257,6 +305,9 @@
 
         },
         mounted(){
+            /**
+             * 获取所有活动（下拉）的数据
+             */
             this.$store.dispatch('getAllActivity',{}).then(res=>{
                 console.log("活动列表",res);
                 let tmplist = [];
@@ -272,8 +323,9 @@
             });
             //获取默认的最新活动
             this.$store.dispatch('defaultQuery').then(res=>{
-                this.realtimeActivity = res.data.activityId;
-                this.realTimeType = res.data.moduleType;
+                console.log('defaultQuery',res)
+                this.realtimeActivity = res.data.activityId;    // 1122388
+                this.realTimeType = res.data.moduleType;    // poster
                 this.getActivityDotRank();
                 this.getManagerRank();
             });
