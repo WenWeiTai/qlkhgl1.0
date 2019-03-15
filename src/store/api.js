@@ -1,10 +1,13 @@
 
 // let url = '/pro';
+let url = process.env.API_ROOT;
 // let url = 'https://aimkt.pingan.com';
 // let url = 'https://sales-engine-leshan.credoo.org:27100';
 // let url = 'http://103.28.215.253:10981';
 // let url = 'https://103.28.215.253:10982';
-let url = 'https://aimkt02-stg.jryzt.com';
+// let url = 'https://aimkt02-stg.jryzt.com';
+
+console.log(process.env)
 
 export default {
     activityList:url+'/report/activityList',//下拉列表
