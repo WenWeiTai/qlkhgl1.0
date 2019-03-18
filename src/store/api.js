@@ -1,13 +1,22 @@
-
-// let url = '/pro';
-let url = process.env.API_ROOT;
+// let url = '/dev';
+// let url = process.env.API_ROOT;
 // let url = 'https://aimkt.pingan.com';
 // let url = 'https://sales-engine-leshan.credoo.org:27100';
 // let url = 'http://103.28.215.253:10981';
 // let url = 'https://103.28.215.253:10982';
 // let url = 'https://aimkt02-stg.jryzt.com';
 
-console.log(process.env)
+let url;
+
+if( window.env === 'prd') {
+    url = 'https://aimkt.pingan.com';
+} else if ( window.env === 'stg' ) {
+    url = 'https://aimkt02-stg.jryzt.com';
+} else {
+    url = '/dev'
+}
+
+console.log(url)
 
 export default {
     activityList:url+'/report/activityList',//下拉列表

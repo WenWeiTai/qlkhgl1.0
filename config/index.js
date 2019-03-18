@@ -11,13 +11,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/pro': {
+      '/dev': {
         // target: 'http://103.28.215.253:10981',  // 交接后测试服务器
         // target: 'https://103.28.215.253:10982',  // 交接后测试服务器
         // target: 'https://sales-engine-leshan.credoo.org:27100',  // 原测试服务器
         target: 'https://aimkt02-stg.jryzt.com',
         pathRewrite: {
-            '^/pro': '',
+            '^/dev': '',
         },
         changeOrigin: true,
         secure:false,

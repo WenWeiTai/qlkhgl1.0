@@ -5,7 +5,7 @@ import { Message } from "element-ui";
 
 const axios = Axios.create({
 	timeout: 80000,
-	withCredentials: true,
+	withCredentials: true,  // 跨域请求携带cookie
     transformRequest: function(data) {
         return qs.stringify(data);
     }
